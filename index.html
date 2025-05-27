@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - NEXA</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="logo">
+            <img src="./img/logo.png" alt="NEXA Logo">
+        </div>
+
+        <p class="subtitle">Acesse sua conta na <strong>NEXA</strong></p>
+
+        <div class="button-group">
+            <a href="https://sso.ufg.br/cas/login?locale=pt_BR&service=https%3A%2F%2Fsigaa.sistemas.ufg.br%2Fsigaa%2FverTelaLogin.do" class="btn sigaa-btn">
+                Entrar com SIGAA
+            </a>
+        </div>
+
+        <form>
+            <label for="email">Email institucional</label>
+            <input type="email" id="email" name="email" placeholder="seuemail@universidade.edu.br" required>
+
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+
+            <a href="login.html" class="btn primary-btn">Entrar</a>
+        </form>
+
+        <p class="terms">
+            Ao continuar, você concorda com nossos <a href="#">Termos</a> e <a href="#">Política de Privacidade</a>.
+        </p>
+    </div>
+
+</body>
+</html>

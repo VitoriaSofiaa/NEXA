@@ -1,0 +1,124 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f9fafb;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.logo img {
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    color: #6b7280;
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.sigaa-btn {
+    background-color: #f3f4f6;
+    color: #374151;
+    border: 1px solid #d1d5db;
+}
+
+.sigaa-btn:hover {
+    background-color: #e5e7eb;
+    transform: translateY(-2px);
+}
+
+form {
+    text-align: left;
+}
+
+form label {
+    display: block;
+    color: #374151;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+form input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    outline: none;
+    background-color: #f9fafb;
+    margin-bottom: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form input:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+.primary-btn {
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+}
+
+.primary-btn:hover {
+    background-color: #4338ca;
+    transform: translateY(-2px);
+}
+
+.terms {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+.terms a {
+    color: #4f46e5;
+    text-decoration: none;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
