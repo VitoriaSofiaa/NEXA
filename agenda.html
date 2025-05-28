@@ -24,35 +24,35 @@
             <section class="card">
                 <div class="card-header">
                     <h2>Tarefas Pendentes</h2>
-                    <button class="btn btn-sm">+ Nova</button>
                 </div>
-                <ul class="task-list">
+                <ul class="task-list" id="task-list">
                     <li class="task-item">
                         <span>Entregar trabalho de engenharia de software</span>
                         <div class="task-actions">
                             <button class="btn btn-sm btn-edit">Editar</button>
-                            <button class="btn btn-sm btn-delete">X</button>
+                            <button class="btn btn-sm btn-delete">Excluir</button>
                         </div>
                     </li>
                     <li class="task-item">
                         <span>Estudar para prova de calculo</span>
                         <div class="task-actions">
                             <button class="btn btn-sm btn-edit">Editar</button>
-                            <button class="btn btn-sm btn-delete">X</button>
+                            <button class="btn btn-sm btn-delete">Excluir</button>
                         </div>
                     </li>
                     <li class="task-item">
                         <span>Ler capítulo 5 de LPP</span>
                         <div class="task-actions">
                             <button class="btn btn-sm btn-edit">Editar</button>
-                            <button class="btn btn-sm btn-delete">X</button>
+                            <button class="btn btn-sm btn-delete">Excluir</button>
                         </div>
                     </li>
                 </ul>
                 <div class="add-task">
-                    <input type="text" placeholder="Adicionar nova tarefa...">
-                    <button class="btn">+</button>
+                    <input type="text" id="new-task-input" placeholder="Adicionar nova tarefa...">
+                    <button class="btn" id="add-task-btn">+</button>
                 </div>
+                <ul class="task-list" id="task-list"></ul>
             </section>
 
             <!-- Grade Curricular -->
@@ -108,7 +108,7 @@
                 </div>
                 <div class="calendar">
                     <div class="calendar-header">
-                        <span class="calendar-title">Maio 2023</span>
+                        <span class="calendar-title">Maio 2025</span>
                         <div>
                             <button class="btn btn-sm">&lt;</button>
                             <button class="btn btn-sm">&gt;</button>
@@ -188,13 +188,13 @@
                         <input type="checkbox" id="task1">
                         <label for="task1">Revisar anotações</label>
                     </div>
-                    <div class="checklist-item completed">
-                        <input type="checkbox" id="task2" checked>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task2">
                         <label for="task2">Fazer exercícios</label>
                     </div>
                     <div class="checklist-item">
                         <input type="checkbox" id="task3">
-                        <label for="task3">Preparar material</label>
+                        <label for="task3">Preparar material para a aula </label>
                     </div>
                     <div class="checklist-item">
                         <input type="checkbox" id="task4">
@@ -204,5 +204,7 @@
             </section>
         </main>
     </div>
+    <script src="tarefas.js"></script>
+    <script src="calendario.js"></script>
 </body>
 </html>
