@@ -357,4 +357,13 @@ h2 {
     .full-width {
         grid-column: span 1;
     }
+.current-date {
+    box-shadow: 0 0 8px var(--primary-color);
+    }
+
+    .task-item.completed span {
+    text-decoration: line-through;
+    color: #999;
+}
+
 }
