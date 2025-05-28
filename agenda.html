@@ -1,1 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Acadêmica Inteligente</title>
+    <link rel="stylesheet" href="agenda.css">
+</head>
+<body>
+    <div class="container">
+<header>
+    <div class="logo-container">
+        <img src="./img/logo.png" alt="Logo Agenda Acadêmica" class="logo">
+        <h1>Agenda Acadêmica</h1>
+    </div>
+    <div class="user-info">
+        <span>Olá, Estudante!</span>
+        <div class="user-avatar">E</div>
+    </div>
+</header>
 
+        <main class="dashboard">
+            <!-- Tarefas Pendentes -->
+            <section class="card">
+                <div class="card-header">
+                    <h2>Tarefas Pendentes</h2>
+                    <button class="btn btn-sm">+ Nova</button>
+                </div>
+                <ul class="task-list">
+                    <li class="task-item">
+                        <span>Entregar trabalho de engenharia de software</span>
+                        <div class="task-actions">
+                            <button class="btn btn-sm btn-edit">Editar</button>
+                            <button class="btn btn-sm btn-delete">X</button>
+                        </div>
+                    </li>
+                    <li class="task-item">
+                        <span>Estudar para prova de calculo</span>
+                        <div class="task-actions">
+                            <button class="btn btn-sm btn-edit">Editar</button>
+                            <button class="btn btn-sm btn-delete">X</button>
+                        </div>
+                    </li>
+                    <li class="task-item">
+                        <span>Ler capítulo 5 de LPP</span>
+                        <div class="task-actions">
+                            <button class="btn btn-sm btn-edit">Editar</button>
+                            <button class="btn btn-sm btn-delete">X</button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="add-task">
+                    <input type="text" placeholder="Adicionar nova tarefa...">
+                    <button class="btn">+</button>
+                </div>
+            </section>
+
+            <!-- Grade Curricular -->
+            <section class="card">
+                <div class="card-header">
+                    <h2>Grade Curricular</h2>
+                    <button class="btn btn-sm">Editar</button>
+                </div>
+                <div class="grade-grid">
+                    <div class="subject-card">
+                        <div class="subject-name">LPP</div>
+                        <div class="subject-info">Segunda, 14h</div>
+                    </div>
+                    <div class="subject-card">
+                        <div class="subject-name">Engenharia de Software</div>
+                        <div class="subject-info">Terça, 10h</div>
+                    </div>
+                    <div class="subject-card">
+                        <div class="subject-name">Cálculo II</div>
+                        <div class="subject-info">Quarta, 16h</div>
+                    </div>
+                    <div class="subject-card">
+                        <div class="subject-name">LFA</div>
+                        <div class="subject-info">Quinta, 8h</div>
+                    </div>
+                    <div class="subject-card">
+                        <div class="subject-name">Física III</div>
+                        <div class="subject-info">Sexta, 13h</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navegação para Disciplinas -->
+            <section class="card">
+                <div class="card-header">
+                    <h2>Disciplinas</h2>
+                </div>
+                <div class="nav-links">
+                    <a href="#" class="nav-link">Linguagens e Paradigmas de Programação</a>
+                    <a href="#" class="nav-link">Engenharia de Software</a>
+                    <a href="#" class="nav-link">Cálculo II</a>
+                    <a href="#" class="nav-link">LFA</a>
+                    <a href="#" class="nav-link">Física III</a>
+                    <a href="#" class="nav-link">Todas</a>
+                </div>
+            </section>
+
+            <!-- Calendário -->
+            <section class="card full-width">
+                <div class="card-header">
+                    <h2>Calendário</h2>
+                    <button class="btn btn-sm">Adicionar Evento</button>
+                </div>
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <span class="calendar-title">Maio 2023</span>
+                        <div>
+                            <button class="btn btn-sm">&lt;</button>
+                            <button class="btn btn-sm">&gt;</button>
+                        </div>
+                    </div>
+                    <div class="calendar-grid">
+                        <div class="calendar-day">Dom</div>
+                        <div class="calendar-day">Seg</div>
+                        <div class="calendar-day">Ter</div>
+                        <div class="calendar-day">Qua</div>
+                        <div class="calendar-day">Qui</div>
+                        <div class="calendar-day">Sex</div>
+                        <div class="calendar-day">Sáb</div>
+                        
+                        <!-- Dias do calendário -->
+                        <div class="calendar-date">28</div>
+                        <div class="calendar-date">29</div>
+                        <div class="calendar-date">30</div>
+                        <div class="calendar-date">1</div>
+                        <div class="calendar-date">2</div>
+                        <div class="calendar-date">3</div>
+                        <div class="calendar-date">4</div>
+                        <div class="calendar-date">5</div>
+                        <div class="calendar-date">6</div>
+                        <div class="calendar-date">7</div>
+                        <div class="calendar-date">8</div>
+                        <div class="calendar-date">9</div>
+                        <div class="calendar-date">10</div>
+                        <div class="calendar-date">11</div>
+                        <div class="calendar-date">12</div>
+                        <div class="calendar-date">13</div>
+                        <div class="calendar-date">14</div>
+                        <div class="calendar-date">15</div>
+                        <div class="calendar-date current-date">16</div>
+                        <div class="calendar-date has-event">17</div>
+                        <div class="calendar-date">18</div>
+                        <div class="calendar-date">19</div>
+                        <div class="calendar-date">20</div>
+                        <div class="calendar-date">21</div>
+                        <div class="calendar-date">22</div>
+                        <div class="calendar-date">23</div>
+                        <div class="calendar-date">24</div>
+                        <div class="calendar-date">25</div>
+                        <div class="calendar-date">26</div>
+                        <div class="calendar-date">27</div>
+                        <div class="calendar-date">28</div>
+                        <div class="calendar-date">29</div>
+                        <div class="calendar-date">30</div>
+                        <div class="calendar-date">31</div>
+                        <div class="calendar-date">1</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Desempenho -->
+            <section class="card">
+                <div class="card-header">
+                    <h2>Desempenho</h2>
+                </div>
+                <div class="performance-chart">
+                    <div class="chart-bar" style="height: 30%;" data-value="30%"></div>
+                    <div class="chart-bar" style="height: 60%;" data-value="60%"></div>
+                    <div class="chart-bar" style="height: 45%;" data-value="45%"></div>
+                    <div class="chart-bar" style="height: 80%;" data-value="80%"></div>
+                    <div class="chart-bar" style="height: 65%;" data-value="65%"></div>
+                    <div class="chart-bar" style="height: 90%;" data-value="90%"></div>
+                </div>
+            </section>
+
+            <!-- Checklist Diário -->
+            <section class="card">
+                <div class="card-header">
+                    <h2>Checklist Diário</h2>
+                </div>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task1">
+                        <label for="task1">Revisar anotações</label>
+                    </div>
+                    <div class="checklist-item completed">
+                        <input type="checkbox" id="task2" checked>
+                        <label for="task2">Fazer exercícios</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task3">
+                        <label for="task3">Preparar material</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="task4">
+                        <label for="task4">Organizar agenda</label>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
