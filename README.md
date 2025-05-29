@@ -1,3 +1,7 @@
+![GitHub repo size](https://img.shields.io/github/repo-size/VitoriaSofiaa/NEXA)
+![GitHub contributors](https://img.shields.io/github/contributors/VitoriaSofiaa/NEXA)
+
+
 # NEXA
 
 Projeto de páginas de navegação para uma **agenda acadêmica inteligente**.  
