@@ -1,0 +1,255 @@
+
+:root {
+    --primary-color: #4da0ff;
+    --secondary-color: #4DCFFF;
+    --accent-color: #4cc9f0;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --success-color: #4caf50;
+    --warning-color: #ff9800;
+    --danger-color: #f44336;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+
+h1 {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+/* Breadcrumb minimalista */
+.breadcrumb {
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+.breadcrumb a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+/* Cards mais limpos */
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 1px solid #ecf0f1;
+}
+
+.card-header {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+h2 {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Conteúdo da disciplina */
+.subject-content {
+    padding: 10px 0;
+}
+
+.content-section h3 {
+    color: #3498db;
+    margin: 15px 0 10px 0;
+    font-size: 1.1rem;
+}
+
+.content-list {
+    list-style-type: none;
+    padding-left: 5px;
+}
+
+.content-list li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.content-list li:before {
+    content: "•";
+    color: #3498db;
+    position: absolute;
+    left: 0;
+}
+
+/* Checklist simplificado */
+.checklist {
+    margin-top: 10px;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.checklist-item input {
+    margin-right: 10px;
+}
+
+.checklist-item.completed label {
+    color: #95a5a6;
+    text-decoration: line-through;
+}
+
+/* Provas e avaliações */
+.exam-list {
+    margin-top: 10px;
+}
+
+.exam-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed #ecf0f1;
+}
+
+.exam-item:last-child {
+    border-bottom: none;
+}
+
+.exam-date {
+    background-color: #3498db;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-right: 15px;
+    font-size: 0.9rem;
+    min-width: 50px;
+    text-align: center;
+}
+
+.exam-title {
+    font-weight: 500;
+}
+
+.exam-content {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* Tarefas pendentes */
+.task-list {
+    list-style: none;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed #ecf0f1;
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.task-actions {
+    display: flex;
+    gap: 5px;
+}
+
+/* Botões minimalistas */
+.btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: opacity 0.2s;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn-sm {
+    padding: 5px 8px;
+    font-size: 0.8rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .exam-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .exam-date {
+        margin-bottom: 5px;
+    }
+}
