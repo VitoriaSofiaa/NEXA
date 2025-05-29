@@ -44,8 +44,4 @@ Este projeto foi desenvolvido por:
 4. Luis Renato
 5. Vitória Sofia
 
-<div align="center">
-  <a align="center" href="https://github.com/Vitoriasofiaa/NEXA/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Vitoriasofiaa/NEXA" />
-  </a>
-</div>
+
