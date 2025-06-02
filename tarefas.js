@@ -1,141 +1,135 @@
-const addTaskBtn = document.getElementById('add-task-btn');
-const taskInput = document.getElementById('new-task-input');
-const taskList = document.getElementById('task-list');
+window.onload = () => {
+  inicializarChecklist();
+  inicializarEventosDasTarefas();
+  inicializarAdicionarTarefa();
+};
 
-function createTaskElement(taskText) {
-    const li = document.createElement('li');
-    li.className = 'task-item';
-
-    const span = document.createElement('span');
-    span.textContent = taskText;
-    span.style.cursor = 'pointer';
-    span.addEventListener('click', () => {
-        li.classList.toggle('completed');
+// Marcar/desmarcar checklist
+function inicializarChecklist() {
+  document
+    .querySelectorAll('.checklist input[type="checkbox"]')
+    .forEach((checkbox) => {
+      checkbox.addEventListener("change", () => {
+        const item = checkbox.closest(".checklist-item");
+        if (item) item.classList.toggle("completed", checkbox.checked);
+      });
     });
-
-    const actions = document.createElement('div');
-    actions.className = 'task-actions';
-
-    const editBtn = document.createElement('button');
-    editBtn.textContent = 'Editar';
-    editBtn.className = 'btn btn-sm btn-edit';
-    editBtn.addEventListener('click', () => {
-        const newText = prompt('Editar tarefa:', span.textContent);
-        if (newText) {
-            span.textContent = newText;
-        }
-    });
-
-    const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = 'Excluir';
-    deleteBtn.className = 'btn btn-sm btn-delete';
-    deleteBtn.addEventListener('click', () => {
-        taskList.removeChild(li);
-    });
-
-    actions.appendChild(editBtn);
-    actions.appendChild(deleteBtn);
-
-    li.appendChild(span);
-    li.appendChild(actions);
-
-    return li;
 }
 
-addTaskBtn.addEventListener('click', () => {
-    const taskText = taskInput.value.trim();
-    if (taskText) {
-        const taskItem = createTaskElement(taskText);
-        taskList.appendChild(taskItem);
-        taskInput.value = '';
-    }
-});
+// Eventos para tarefas existentes
+function inicializarEventosDasTarefas() {
+  document.querySelectorAll(".task-item").forEach((task) => {
+    const span = task.querySelector("span");
+    const btnEdit = task.querySelector(".btn-edit");
+    const btnDelete = task.querySelector(".btn-delete");
 
-taskInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        addTaskBtn.click();
-    }
-});
+    btnDelete?.addEventListener("click", () => task.remove());
 
-//checlist diario
-const checklistItems = document.querySelectorAll('.checklist-item input[type="checkbox"]');
-checklistItems.forEach(item => {
-    item.addEventListener('change', () => {
-        if (item.checked) {
-            item.parentElement.classList.add('completed');
-        } else {
-            item.parentElement.classList.remove('completed');
-        }
+    btnEdit?.addEventListener("click", () => {
+      editarInline(span);
     });
-});
 
-// Adiciona funcionalidade de arrastar e soltar para a lista de tarefas
-let draggedItem = null;
-taskList.addEventListener('dragstart', (e) => {
-    draggedItem = e.target;
-    draggedItem.classList.add('dragging');
-});
-taskList.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    const afterElement = getDragAfterElement(taskList, e.clientY);
-    if (afterElement == null) {
-        taskList.appendChild(draggedItem);
-    } else {
-        taskList.insertBefore(draggedItem, afterElement);
-    }
-});
-taskList.addEventListener('dragend', () => {
-    draggedItem.classList.remove('dragging');
-    draggedItem = null;
-});
-function getDragAfterElement(container, y) {
-    const draggableElements = [...container.querySelectorAll('.task-item:not(.dragging)')];
-    return draggableElements.reduce((closest, child) => {
-        const box = child.getBoundingClientRect();
-        const offset = y - box.top - box.height / 2;
-        if (offset < 0 && offset > closest.offset) {
-            return { offset: offset, element: child };
-        } else {
-            return closest;
-        }
-    }, { offset: Number.NEGATIVE_INFINITY }).element;
+    // Drag and drop
+    task.setAttribute("draggable", "true");
+    task.addEventListener("dragstart", dragStart);
+    task.addEventListener("dragover", dragOver);
+    task.addEventListener("drop", drop);
+    task.addEventListener("dragend", dragEnd);
+  });
 }
-// Adiciona funcionalidade de editar o checklist diário
-const checklistEditBtn = document.getElementById('checklist-edit-btn');
-checklistEditBtn.addEventListener('click', () => {
-    const checklistItems = document.querySelectorAll('.checklist-item');
-    checklistItems.forEach(item => {
-        const checkbox = item.querySelector('input[type="checkbox"]');
-        const label = item.querySelector('label');
-        if (checkbox.disabled) {
-            checkbox.disabled = false;
-            label.style.textDecoration = 'none';
-            item.classList.remove('completed');
-        } else {
-            checkbox.disabled = true;
-            label.style.textDecoration = 'line-through';
-        }
-    });
-});
 
-//adiciona funcionalidade de editar e expluir tarefas ja existentes
-const taskEditBtns = document.querySelectorAll('.btn-edit');
-taskEditBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        const taskItem = e.target.closest('.task-item');
-        const taskText = taskItem.querySelector('span').textContent;
-        const newText = prompt('Editar tarefa:', taskText);
-        if (newText) {
-            taskItem.querySelector('span').textContent = newText;
-        }
-    });
-});
-const taskDeleteBtns = document.querySelectorAll('.btn-delete');
-taskDeleteBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        const taskItem = e.target.closest('.task-item');
-        if (confirm('Tem certeza que deseja excluir esta tarefa?')) {
-            taskItem.remove();
-        }
-    });
-});
+// Função de edição inline acionada pelo botão
+function editarInline(span) {
+  const textoOriginal = span.textContent;
+  const input = document.createElement("input");
+  input.type = "text";
+  input.value = textoOriginal;
+  input.className = "inline-edit";
+
+  const tarefa = span.closest(".task-item");
+  span.replaceWith(input);
+  input.focus();
+
+  const salvar = () => {
+    const novoTexto = input.value.trim() || textoOriginal;
+    const novoSpan = document.createElement("span");
+    novoSpan.textContent = novoTexto;
+    input.replaceWith(novoSpan);
+
+    const btnEdit = tarefa.querySelector(".btn-edit");
+    btnEdit.onclick = () => editarInline(novoSpan);
+  };
+
+  input.addEventListener("blur", salvar);
+  input.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      input.blur();
+    }
+  });
+}
+
+function inicializarAdicionarTarefa() {
+  const input = document.getElementById("new-task-input");
+  const btn = document.getElementById("add-task-btn");
+
+  btn.addEventListener("click", () => adicionarTarefa(input.value));
+  input.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") adicionarTarefa(input.value);
+  });
+}
+
+function adicionarTarefa(texto) {
+  texto = texto.trim();
+  if (!texto) return;
+
+  const ul = document.querySelector(".task-list");
+  const li = document.createElement("li");
+  li.className = "task-item";
+  li.setAttribute("draggable", "true");
+
+  li.innerHTML = `
+        <span>${texto}</span>
+        <div class="task-actions">
+            <button class="btn btn-sm btn-edit">Editar</button>
+            <button class="btn btn-sm btn-delete">Excluir</button>
+        </div>
+    `;
+
+  ul.insertBefore(li, ul.querySelector(".add-task"));
+  document.getElementById("new-task-input").value = "";
+
+  inicializarEventosDasTarefas();
+}
+
+let tarefaSendoArrastada = null;
+
+function dragStart() {
+  tarefaSendoArrastada = this;
+  this.style.opacity = "0.5";
+}
+
+function dragOver(e) {
+  e.preventDefault();
+  const destino = this;
+  if (destino !== tarefaSendoArrastada) {
+    destino.style.borderTop = "2px solid #00aaff";
+  }
+}
+
+function drop(e) {
+  e.preventDefault();
+  const destino = this;
+  destino.style.borderTop = "";
+  if (tarefaSendoArrastada && destino !== tarefaSendoArrastada) {
+    const lista = destino.parentNode;
+    lista.insertBefore(tarefaSendoArrastada, destino);
+  }
+}
+
+function dragEnd() {
+  this.style.opacity = "1";
+  document.querySelectorAll(".task-item").forEach((task) => {
+    task.style.borderTop = "";
+  });
+}
