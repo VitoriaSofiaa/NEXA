@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Acadêmica Inteligente</title>
+    <link rel="stylesheet" href="es.css">
+</head>
+<body>
+    <div class="container">
+<header>
+    <div class="logo-container">
+        <img src="./img/logo.png" alt="Logo Agenda Acadêmica" class="logo">
+        <h1>Engenharia de Software</h1>
+    </div>
+    <div class="user-info">
+        <span>Olá, Estudante!</span>
+        <div class="user-avatar">E</div>
+    </div>
+</header>
+
+        <nav class="breadcrumb">
+            <a href="agenda.html">Home</a> &gt; <span>Engenharia de Software</span>
+        </nav>
+
+        <main class="dashboard">
+            <!-- Conteúdo da Disciplina -->
+            <section class="card full-width">
+                <div class="card-header">
+                    <h2>Conteúdo Programático</h2>
+                    <button class="btn btn-sm">Editar</button>
+                </div>
+                <div class="subject-content">
+                    <div class="content-section">
+                        <h3>1. Fundamentos da Engenharia de Software</h3>
+                        <ul class="content-list">
+                            <li> Contextualização da Engenharia de Software</li>
+                        </ul>
+                    </div>
+                    <div class="content-section">
+                        <h3>2. Áreas de conhecimento</h3>
+                        <ul class="content-list">
+                            <li>Processos de Engenharia de Software</li>
+                            <li>Requisitos de Software </li>
+                            <li>Gerência de Projeto de Software</li>
+                            <li>Projeto (Design) de Software</li>
+                            <li> Teste de Software</li>
+                            <li>Construção de Software e Gerência de Configuração de Software</li>
+                            <li>Manutenção de Software</li>
+                            <li>Qualidade de Software</li>
+                        </ul>
+                    </div>
+                    <div class="content-section">
+                        <h3>3. Estudo de caso</h3>
+                        <ul class="content-list">
+                            <li>Ênfase em algumas áreas do conhecimento do SWEBOK</li>
+                            <li>Ferramentas de apoio às etapas da ES</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Checklist de Conteúdos -->
+            <section class="card">
+                <div class="card-header">
+                    <h2>Checklist de Estudo</h2>
+                </div>
+                <div class="checklist">
+                    <div class="checklist-section">
+                        <h3>Fundamentos da Engenhria de Software</h3>
+                        <div class="checklist-item completed">
+                            <input type="checkbox" id="algebra1" checked>
+                            <label for="algebra1">Contextualização da Engenharia de Software</label>
+                    </div>
+                    <div class="checklist-section">
+                        <h3>Áreas de conhecimentos</h3>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="geo1">
+                            <label for="geo1">Tópicos 1 - 4</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="geo2">
+                            <label for="geo2">Tópicos 5 - 8</label>
+                        </div>
+                    </div>
+                    <div class="checklist-section">
+                        <h3>Estudo de caso</h3>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="geo3">
+                            <label for="geo3">Ênfase em algumas áreas do conhecimento do SWEBOK</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="geo4">
+                            <label for="geo4">Ferramentas de apoio às etapas da ES</label>
+                        </div>
+                </div>
+            </section>
+
+            <!-- Provas e Avaliações -->
+            <section class="card">
+                <div class="card-header">
+                    <h2>Provas e Avaliações</h2>
+                    <button class="btn btn-sm">+ Nova</button>
+                </div>
+                <div class="exams-list">
+                    <div class="exam-item">
+                        <div class="exam-date">16/06</div>
+                        <div class="exam-info">
+                            <div class="exam-title">Trabalho Individual</div>
+                            <div class="exam-content">Ferramentas para a gerência de configuração de software</div>
+                        </div>
+                    </div>
+                    <div class="exam-item">
+                        <div class="exam-date">23/06</div>
+                        <div class="exam-info">
+                            <div class="exam-title">Trabalho em Grupo</div>
+                            <div class="exam-content">Estudo de caso: 4º Produto</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tarefas Pendentes -->
+            <section class="card">
+                <div class="card-header">
+                    <h2>Tarefas da Disciplina</h2>
+                </div>
+                <ul class="task-list">
+                    <li class="task-item" draggable="true">
+                        <span>Reunir com o grupo</span>
+                        <div class="task-actions">
+                            <button class="btn btn-sm btn-edit">Editar</button>
+                            <button class="btn btn-sm btn-delete">Excluir</button>
+                        </div>
+                    </li>
+                    <li class="task-item" draggable="true">
+                        <span>Estudo de caso </span>
+                        <div class="task-actions">
+                            <button class="btn btn-sm btn-edit">Editar</button>
+                            <button class="btn btn-sm btn-delete">Excluir</button>
+                        </div>
+                    </li>
+                    <li class="task-item" draggable="true">
+                        <span>Preparar apresentação</span>
+                        <div class="task-actions">
+                            <button class="btn btn-sm btn-edit">Editar</button>
+                            <button class="btn btn-sm btn-delete">Excluir</button>
+                        </div>
+                    </li>
+                    <div class="add-task">
+            <input
+              type="text"
+              id="new-task-input"
+              placeholder="Adicionar nova tarefa..."
+            />
+            <button class="btn" id="add-task-btn">+</button>
+          </div>
+                </ul>
+            </section>
+        </main>
+    </div>
+    <script src="es.js"></script>
+</body>
+</html>
